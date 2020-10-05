@@ -7,10 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import javax.validation.Valid;
 
 /**
@@ -22,20 +18,6 @@ public class EventController {
 
     @GetMapping
     public String displayAllEvents(Model model) {
-//        List<String> events = new ArrayList<>();
-//        events.add("Code With Pride");
-//        events.add("Strange Loop");
-//        events.add("Apple WWDC");
-//        events.add("SpringOne Platform");
-//        model.addAttribute("events", events);
-//        return "events/index";
-
-        Map<String, String> events = new HashMap<>();
-        events.put("Code With Pride", "LGBT Friendly Coding Meetup");
-        events.put("Strange Loop", "Loops that are strange");
-        events.put("Apple WWDC", "Event for people who like overpriced computers");
-        model.addAttribute("events", events);
-
         model.addAttribute("title", "All Events");
         model.addAttribute("events", EventData.getAll());
         return "events/index";
